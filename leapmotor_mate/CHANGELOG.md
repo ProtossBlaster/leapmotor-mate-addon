@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1
+
+- Home Assistant ingress support: the web UI now works correctly inside the add-on panel.
+- Installs leapmotor-mate `v1.0.1`.
+
 ## 1.0.0
 
 - First public release.
