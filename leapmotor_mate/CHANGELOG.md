@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.4
+
+- Trip/charge times now shown in local time (was UTC).
+- Trip detection now gear-based, matching HA: a trip ends on gear P held ~1 min and trips < 0.5 km are ignored (no more fragmented drives).
+- Installs leapmotor-mate `v1.0.4`.
+
 ## 1.0.3
 
 - Statistics: "Consumption trend (6 weeks)" chart legend dates now shown as `DD/MM` (was `MM-DD`).
