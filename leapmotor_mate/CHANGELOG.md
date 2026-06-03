@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.1
+
+- **Fix poller regression (since 1.5.1):** the charge-detection setting was applied with a wrong call that errored every cycle, so the poller stopped collecting data. Polling/trip/charge detection restored — **update strongly recommended** if you were on 1.5.1 or 1.6.0.
+- Fix the setup PIN field: the Leapmotor operation PIN is **4 digits**, not 6.
+- Installs leapmotor-mate `v1.6.1`.
+
 ## 1.6.0
 
 - **Responsive layout for phones and tablets** — on small screens the sidebar becomes a slide-out drawer with a hamburger menu and the content reflows to full width. Desktop layout unchanged. Contributed by @hubcasale (#6) — thanks!
