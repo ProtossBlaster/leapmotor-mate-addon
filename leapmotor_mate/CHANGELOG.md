@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.1
+
+- **Configurable charge-detection threshold** — set the minimum charging current that counts as charging in **Settings → Charge detection** (0.5–16 A, default 2 A). Useful for low-power/experimental supplies; applied live by the poller. Thanks @hubcasale (#5).
+- Installs leapmotor-mate `v1.5.1`.
+
 ## 1.5.0
 
 - **New Navigation page** 🧭 — search an address and send the destination straight to the car's built-in navigation; also shows the car's current address. Keyless address lookup by default (OpenStreetMap), with an optional provider + API key (Geoapify recommended — free, no card) for better house-number coverage.
