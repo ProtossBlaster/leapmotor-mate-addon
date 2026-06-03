@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+
+- Fix: the optional Wallbox feature now works in add-on mode. The Supervisor token wasn't reaching the app process (s6-overlay keeps it out of the service environment), so the add-on showed the standalone URL/token form and couldn't connect. It now connects to Home Assistant automatically — green status, no URL or token needed.
+- Installs leapmotor-mate `v1.1.1`.
+
 ## 1.1.0
 
 - **Wallbox integration (optional).** Pair a wallbox already in Home Assistant to get a dedicated Wallbox page: live panel (power, status, session energy, charging speed, max available power) + session cost, a max-current control, and an AC-vs-DC comparison per charge session (kWh delivered vs into the battery + efficiency) as a year/month/day history. As an add-on it connects to HA automatically — no URL or token needed. Enable it in Settings → Wallbox present.
