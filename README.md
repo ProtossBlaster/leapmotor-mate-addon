@@ -50,6 +50,12 @@ Durante il setup dovrai:
 
 Database e certificato sono salvati nella `/data` persistente dell'add-on (sopravvivono a riavvii e aggiornamenti).
 
+## ☕ Support
+
+LeapMotor Mate is free and open-source. If it's useful to you, you can support its development with a coffee — thank you! · *Se ti è utile, puoi offrirmi un caffè per sostenerne lo sviluppo — grazie!* ☕
+
+<a href="https://www.buymeacoffee.com/protossblaster" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="48"></a>
+
 ## License
 
 [GNU AGPL-3.0](./LICENSE) © Silvio Bressani.
