@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.8.2
+
+- **Fix: shared cars now report live data.** A car *shared* to your account (the recommended setup — a separate account from your phone, with the car shared to it) could leave the poller stuck on *"Vehicle returned no live data"* forever, even while driving, because the Leapmotor cloud needs the `carId` in the status request for shared cars. Mate now sends it automatically when a shared car comes back empty, and the log shows `shared: true/false` so this is diagnosable. (Reported on the T03 in #9.)
+- **Encrypted credentials at rest.** Your Leapmotor password/PIN and the other stored secrets (Home Assistant, ABRP, MQTT, geocoder) are now encrypted in the local database with a per‑install key (`/data/secret.key`, auto‑generated). Existing installs migrate transparently on the next start — no re‑login. **Keep `secret.key` with your backups**: a database restored without it will ask you to re‑enter the credentials.
+- **Optional database pruning** (Settings → Database) — cap raw GPS‑sample storage to 6/12/18/24 months; old non‑charging samples are pruned daily while trips and charge curves are always kept. Off by default. The page also shows the current database size.
+- **Data export & backup** (Settings → Export) — download Trips and Charges as CSV and a full database backup; each trip page now has a GPX download of its GPS track.
+- **Health endpoint** `/healthz` (+ Docker HEALTHCHECK) — a wedged poller is now visible instead of data silently stopping.
+- **Faster charge/Wallbox history** as the database grows over the years (new telemetry index).
+- **Fix: regen energy** now scales with the configured driving poll interval instead of a hardcoded 10 s; **trip efficiency** is no longer stored as a negative value after a regen / cloud SOC blip.
+- **Hardening:** stored secrets are masked (not rendered back) in the Settings page; MQTT commands are thread‑safe; a clear warning is shown if the encryption key is missing/wrong at startup.
+- Installs leapmotor-mate `v1.8.2`.
+
 ## 1.8.1
 
 - **Climate over MQTT is now four buttons** — *Quick Cool*, *Quick Heat*, *Defrost* and *A/C Off* — instead of a single on/off switch (which only ran the ventilation fan and whose OFF did nothing). Turning the A/C fully **off** is best-effort: the vehicle cloud doesn't reliably honour it (an open issue with the Leapmotor API). The old switch is removed from Home Assistant automatically; the read-only *Climate* state sensor stays. (Reported in #14)

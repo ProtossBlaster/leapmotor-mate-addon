@@ -102,6 +102,12 @@ won't clash with this one.
 The SQLite database and the uploaded certificate live in the add-on's
 persistent `/data` directory, so they survive restarts and updates.
 
+Your stored secrets (Leapmotor password/PIN, and any Home Assistant / ABRP /
+MQTT / geocoder tokens) are **encrypted at rest** with a per-install key at
+`/data/secret.key`, generated automatically on first start. **Keep `secret.key`
+with your backups** — a database restored without it can't be decrypted and the
+add-on will ask you to re-enter your credentials.
+
 ## Notes
 
 This is an unofficial project, not affiliated with Leapmotor. It uses
