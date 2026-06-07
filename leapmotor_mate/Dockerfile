@@ -6,7 +6,7 @@ ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
 # Version of leapmotor-mate to install (git tag in the main repo).
-ARG MATE_REF=v1.11.6
+ARG MATE_REF=v1.11.7
 
 ENV PYTHONUNBUFFERED=1 \
     CERT_DIR=/app/certs \
