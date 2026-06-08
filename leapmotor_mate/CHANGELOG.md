@@ -3,6 +3,22 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.11.18 — 2026-06-08
+
+### Added
+- **Vampire drain** on the Battery page — how much charge the car loses while **parked and not charging**.
+  Computed automatically from the telemetry Mate already logs: it groups the parked-idle periods (no driving — by
+  speed *or* an odometer change — and no charging), measures the SoC each one lost, and shows it as a per-period
+  bar plus a "typical %/day" figure. Periods under an hour or with a sub-0.5 % drop are treated as sensor noise.
+  No setup, no input.
+
+### Changed
+- **Sending a command no longer risks logging you out of the official Leapmotor app** (on a shared account). When a
+  command hits an expired token, Mate now **refreshes the token** (keeping the same session) instead of doing a full
+  re-login — a full login is what the cloud treats as a new device session and uses to evict your phone. A full
+  re-login is still the fallback if the refresh can't recover (and still self-heals a missing certificate). The
+  background poller already worked this way; this brings the command path in line.
+
 ## 1.11.17 — 2026-06-08
 
 ### Fixed
