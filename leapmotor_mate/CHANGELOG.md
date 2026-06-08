@@ -3,6 +3,16 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.11.12 — 2026-06-08
+
+### Changed
+- **Charges show the actual charging window for delayed/scheduled charges.** A session is recorded from
+  cable plug-in to unplug, so a scheduled/delayed charge folds in the idle time before/after power
+  actually flows. The charges list now adds an **"Charged HH:MM → HH:MM"** line with the real charging
+  window (first→last power sample) whenever it differs from the plug-in→unplug window, so the displayed
+  times match reality. Normal charges are unchanged, and off-peak (time-of-use) cost was already correct
+  in the default "Accurate split" pricing (energy is attributed by the real power curve). Reported in #23.
+
 ## 1.11.11 — 2026-06-08
 
 ### Added
