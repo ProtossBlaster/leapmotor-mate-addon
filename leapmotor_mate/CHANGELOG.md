@@ -3,6 +3,15 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.11.14 — 2026-06-08
+
+### Changed
+- **Home charges are billed on the wallbox's AC energy.** When a wallbox is configured, a **HOME** charge's
+  cost now uses the **AC energy the wallbox actually delivered** (what you pay the utility, including AC→DC
+  conversion losses) instead of only the DC energy that reached the battery. Public/away charges and setups
+  without a wallbox keep DC billing (the only figure available there). Per the "new charges only" rule,
+  already-costed charges are unchanged — re-confirm a charge's type to recompute it. Thanks @riri19 (#23).
+
 ## 1.11.13 — 2026-06-08
 
 ### Fixed
