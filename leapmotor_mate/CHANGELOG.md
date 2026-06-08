@@ -3,6 +3,20 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.11.11 — 2026-06-08
+
+### Added
+- **One-touch vehicle preparation.** A new **Prepare car** page mirrors the official app's
+  "Preparazione del veicolo con un solo tocco": bundle air-conditioning (cool/heat/vent/defrost +
+  temperature), front-seat heating/ventilation, steering-wheel heating, mirror heating and an optional
+  destination, then run it **now** (cmd 360) or on a **schedule** (cmd 361) with a time + weekdays.
+  Scheduled preparations are listed (read from the car), **editable** and individually removable. A
+  **"Cancel preparation (all off)"** button turns A/C, seats, steering and mirror heating back off. This
+  completes coverage of the B10 app's remote functions in Mate.
+- **Delete trip.** The trip detail page now has a **🗑 Delete trip** button (with an explicit
+  confirmation prompt) that permanently removes a trip and its GPS track; daily/monthly/lifetime
+  totals recompute automatically. Useful for one-off bad data.
+
 ## 1.11.10 — 2026-06-08
 
 ### Fixed
