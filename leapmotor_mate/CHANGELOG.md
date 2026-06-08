@@ -3,6 +3,27 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.11.17 — 2026-06-08
+
+### Fixed
+- **A home charge could show an impossible cost** (e.g. 10.3 kWh billed at 11.07 € — GitHub #24). Home charges
+  are billed on the real AC energy the wallbox delivers, which is read from the charge's power curve. The 1.11.16
+  fix capped the *displayed* charging window and the split-cost query so an offline-interrupted/overlapping charge
+  couldn't absorb a later charge's power — but the **power-curve read used for the AC energy was left un-capped**,
+  so for such a charge the AC energy (and therefore the cost) still leaked in a later charge's wallbox power. That
+  read is now capped at the next charge's start too, so the AC energy and cost stay bounded to the charge itself.
+  The same cap was applied to the battery-health energy integral.
+- **An implausible wallbox AC reading is no longer shown or billed.** If the AC energy comes out more than twice the
+  DC energy into the battery (physically impossible — real efficiency is ~75–95 %), or can't be validated because the
+  DC figure is zero/missing, it's discarded and the cost falls back to the battery (DC/SoC) energy. This guards
+  against a mis-mapped Home Assistant entity (e.g. a cumulative-kWh meter mapped as the wallbox *power* sensor, which
+  showed thousands of kWh at ~0 % efficiency).
+- **The AC/DC comparison energy now skips gaps over 15 min**, consistent with the time-of-use cost split, so a long
+  pause inside a single charge no longer inflates the AC energy (and the cost billed on it).
+
+> **Note:** a charge's cost is frozen when you confirm its type. To recompute an already-recorded charge with the
+> fix, just re-select its location (e.g. "🏠 Home") on the Charges page.
+
 ## 1.11.16 — 2026-06-08
 
 ### Fixed
