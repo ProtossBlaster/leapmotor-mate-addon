@@ -3,6 +3,21 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.16.8 — 2026-06-11
+
+### Changed
+- **🪗 The Settings page is now a tidy accordion.** Every section is collapsible (the same pattern as
+  the old *Advanced* card) and **starts collapsed**, so instead of scrolling past long, always-open
+  cards you get a clean list of titles and open only the one you need. Each card **remembers its
+  open/collapsed state** (saved server-side, shared across devices), and the integration cards (ABRP,
+  Wallbox, MQTT) show their **connection status right in the header** even while collapsed. Cards are
+  balanced **5/4/4** across the three columns so the page no longer leaves big empty gaps.
+  *(Suggested by a user on Telegram.)*
+
+### Fixed
+- The *Advanced* card now actually remembers whether you left it open — its key was missing from the
+  save allowlist, so toggling it never persisted before.
+
 ## 1.16.7 — 2026-06-11
 
 ### Changed
