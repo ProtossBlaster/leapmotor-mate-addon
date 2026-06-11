@@ -3,6 +3,19 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.16.12 — 2026-06-11
+
+### Fixed
+- **🔌 No more phantom charges.** A brief plug / charge‑state blip — e.g. the car re‑evaluating after
+  you change a charge **schedule** — could leave a fake "charge" in the log that gained no SoC and
+  delivered no energy. These empty sessions are now dropped on the spot, and a **one‑time cleanup**
+  removes any already in your history. Strictly empty‑only: a charge with **any** SoC gain **or any**
+  wallbox‑measured energy is never touched (verified on real data). *(Reported on Telegram.)*
+
+### Changed
+- **⏱️ Charge & trip durations read as hours.** A long session now shows **10h 19m** instead of a bare
+  *619 min* — in the Overview "last charge" card, the Charges and Trips lists, and the trip detail.
+
 ## 1.16.11 — 2026-06-11
 
 ### Fixed
