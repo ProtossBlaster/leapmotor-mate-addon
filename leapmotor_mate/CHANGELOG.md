@@ -3,6 +3,22 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.19.1 — 2026-06-13
+
+### Fixed
+- **Trip starts no longer missed after the car sleeps.** When the car was parked and not reporting,
+  the poller could back off to a fixed 15-minute cycle and only notice a drive well after it had begun
+  (the first sample already at speed, the start of the route cut off). It now keeps polling at **your
+  configured cadence** whenever the car or the cloud is briefly unreachable, so the start of a trip is
+  caught as soon as data returns. Polling the cloud never wakes or drains the car, and re-login stays
+  rate-limited. *(Diagnosed with @riri19, #52.)*
+- **"Driving" shown while parked (Home Assistant / ABRP).** The published vehicle state was derived
+  from a climate-fan signal, so a fan speed of 3–5 while parked could read as *driving*. It now comes
+  from the **gear and speed** — the same inputs as trip detection — so the MQTT `state` sensor and the
+  ABRP `is_parked` flag match reality. *(Reported by @riri19.)*
+- **Crash-recovery trip distance.** Closing a trip left open by a restart now filters out null-island
+  (0, 0) GPS fixes before measuring, so a single stray point can no longer inflate a trip's distance.
+
 ## 1.19.0 — 2026-06-13
 
 ### Added
