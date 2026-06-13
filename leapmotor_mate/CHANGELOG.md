@@ -3,6 +3,17 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.19.3 — 2026-06-13
+
+### Fixed
+- **The account TLS certificate now survives restarts (root-cause fix for the vanishing cert).** At
+  every login the API writes the account certificate and key as temporary files. They used to land in
+  the container's **ephemeral `/tmp`**, which a standalone Docker install (e.g. on a NAS) wipes on
+  every restart — so the two files vanished, remote commands failed with *"Could not find the TLS
+  certificate file"*, and the poller had to re-login on each restart. They now live on the
+  **persistent `/data`** volume (via `TMPDIR`), so they persist across restarts and the session is
+  reused without a re-login. The v1.19.2 self-heal stays as a safety net. *(Reported by @riri19.)*
+
 ## 1.19.2 — 2026-06-13
 
 ### Fixed

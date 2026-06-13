@@ -1,6 +1,6 @@
 name: "LeapMotor Mate"
 description: "Trip tracking, charge logging, charge scheduling, navigation and remote control for Leapmotor vehicles (B10, C10, T03)"
-version: "1.19.2"
+version: "1.19.3"
 slug: "leapmotor_mate"
 url: "https://github.com/ProtossBlaster/leapmotor-mate"
 # Pull the prebuilt multi-arch image from GHCR (built by the code repo's docker-publish.yml)
