@@ -3,6 +3,18 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.19.2 — 2026-06-13
+
+### Fixed
+- **Remote commands now recover from a missing TLS certificate.** On some setups the account's TLS
+  certificate (a temporary file) gets cleaned out of `/tmp`, and a command would then fail outright
+  with *"Could not find the TLS certificate file"*. Commands now treat this like any other auth
+  hiccup — re-login (which re-creates the certificate) and retry — the same self-heal the background
+  poller already had. *(Reported by @riri19.)*
+- **Quieter command logs.** A command that fails once and succeeds on retry (a transient stale
+  connection or an expired token) no longer logs an alarming `ERROR`; the error level is now reserved
+  for a command that actually gives up.
+
 ## 1.19.1 — 2026-06-13
 
 ### Fixed
