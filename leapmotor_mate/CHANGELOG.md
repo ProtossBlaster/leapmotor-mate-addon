@@ -3,6 +3,47 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.20.0 — 2026-06-13
+
+### Changed
+- **Trip cost is now based on the _blended_ price of the energy actually in your battery
+  (weighted‑average cost), not the price of your single last charge.** This fixes a real
+  over‑billing on mixed charging: previously, right after a small expensive public/HPC charge,
+  **every** following trip was billed at that premium rate — even though most of the energy still in
+  the battery came from a cheaper home charge. Now each charge blends into a running average by **how
+  much energy it added**, and a trip is priced at that blend. *Example:* a full home charge at
+  €0.25/kWh, then a 20 kWh HPC top‑up at €0.75/kWh, leaves the pack at a blended **€0.42/kWh** (not
+  €0.75) — so a 20 kWh trip reads **€8.33**, not €15.00. _(Suggested by @riri19, #53; builds on the
+  #51 billed‑energy fix.)_
+
+  **How trip costs are calculated from now on — please read, so the numbers make sense:**
+  - **A per‑trip cost is an estimate, not an invoice.** You pay at the charger, not per trip, so Mate
+    _allocates_ your charging spend across trips. The trip costs will normally sum to a bit **less**
+    than what you actually paid: some energy goes to climate, standby (vampire) drain, charging losses
+    and regen. **That gap is expected — not a bug.**
+  - **The price only moves when you charge** (never while driving): at each charge, new blended €/kWh =
+    `(kWh still in the pack × old price + kWh added × this charge's price) ÷ total kWh`.
+  - **A public charge counts only once you confirm its cost** on the Charges page (home charges are
+    priced automatically). Until you confirm it, your trips keep the previous price and then update by
+    themselves the moment you confirm it.
+  - **The trip's energy (kWh) is still estimated from the battery %**, so very short or sparsely‑polled
+    trips can still read rough. A more precise energy method (from pack voltage × current) is planned
+    (#52).
+  - The new figure can come out **higher _or_ lower** than before depending on your charge mix — that's
+    it being more accurate, not a regression.
+- **Overview layout tidied** — the vehicle card and the "last known position" map swapped places for a
+  cleaner flow.
+
+### Added
+- **Redesigned vehicle card on the Overview.** The car photo now doubles as a live panel: **doors
+  locked/unlocked** and **open‑windows count** overlaid on the image, **quick command buttons**
+  (unlock · lock · trunk · windows, colour‑coded) below it, and — while charging — an **animated energy
+  flow** with live **kW · % · time‑to‑full**. It now falls back to a placeholder when the cloud photo
+  isn't available, instead of the whole card disappearing.
+- **"New section" badges in Settings.** When a future release adds a Settings section, it shows a
+  **NEW** badge on its header until you open it once — so a new option isn't missed in the changelog.
+  (No section is flagged in this release; the mechanism is ready for the next one.)
+
 ## 1.19.3 — 2026-06-13
 
 ### Fixed
