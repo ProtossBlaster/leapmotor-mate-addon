@@ -3,6 +3,15 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.20.1 — 2026-06-14
+
+### Added
+- **Leapmotor B05 battery capacities.** The new B05 hatchback (2026) is now recognised at setup with its
+  two European variants — **55.0 kWh usable** (Pro · 401 km WLTP) and **65.0 kWh usable** (Pro Max · 482 km
+  WLTP) — instead of falling back to a generic default. The B05 shares the B10's battery pack, so the figures
+  match. Affects new setups and the capacity used for energy/efficiency and battery‑health estimates;
+  existing installs keep whatever they already configured.
+
 ## 1.20.0 — 2026-06-13
 
 ### Changed
