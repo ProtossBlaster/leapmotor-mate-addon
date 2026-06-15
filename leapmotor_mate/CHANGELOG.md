@@ -3,6 +3,14 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.21.5 — 2026-06-15
+
+### Fixed
+- **No more negative "best efficiency" in Statistics.** A trip recorded with the SoC *rising* (e.g. a trip window mis‑bounded across a charge during an offline gap) produced a negative efficiency, which surfaced as a nonsensical "best efficiency" like −39 kWh/100km. Mate now never stores or displays a negative efficiency (the trip‑finalize/repair paths withhold it, and a one‑time cleanup nulls any already recorded), so the best/average figures stay real.
+
+### Changed
+- **Clearer "dedicated account" guidance.** The Leapmotor account Mate uses must be **exclusive to Mate** — never signed into another app, add‑on, Docker container or integration at the same time. Leapmotor allows only ~one active session per account, so concurrent clients evict each other's session, the car goes offline, and you get **missing or inconsistent data**. This is now spelled out in the setup wizard, the README and the Docker Hub page.
+
 ## 1.21.4 — 2026-06-15
 
 ### Fixed
