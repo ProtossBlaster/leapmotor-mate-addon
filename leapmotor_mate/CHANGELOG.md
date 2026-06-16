@@ -3,6 +3,11 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.22.5 — 2026-06-16
+
+### Fixed
+- **No more spurious "Could not find the TLS certificate file" errors and unnecessary re-logins.** The per-login account TLS certificate can be cleaned up mid-session — most visibly on a car with weak mobile coverage that fails many polls — which used to surface as an alarming error and force a full re-login. Mate now re-creates the certificate in place from the copy it already keeps (before each status poll and each remote command), so the session keeps working without a re-login (#64). Note: commands to a parked car on a weak signal or in deep sleep can still time out — that's the car not answering, not a Mate error, and the **Car responsiveness** indicator on the Overview reflects it.
+
 ## 1.22.4 — 2026-06-16
 
 ### Fixed
