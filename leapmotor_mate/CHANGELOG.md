@@ -3,6 +3,14 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.24.0 — 2026-06-17
+
+### Added
+- **The Overview car picture is now live.** Instead of a single static render, Mate composes the car image from the per-vehicle layer package it already downloads — so it reflects the real state: the **charge cable** (animated while charging), the **four doors**, the **two near-side windows**, and the **tailgate**. It updates the moment the state changes (and right after a command), and falls back to the static render if anything is unavailable. The interactive **demo** shows it too (charging animation out of the box). The model and colour come from the car's own package, so it works for any model.
+
+### Changed
+- **Unified colour system across Overview, Commands and Vehicle ([#66](https://github.com/ProtossBlaster/leapmotor-mate/issues/66), thanks @riri19).** One consistent meaning for every colour so the eye can read state at a glance: **green = safe** (locked, closed), **amber = attention** (windows open), **red = alert** (trunk open, unlocked); **blue = cold** and **orange = hot** for climate and comfort; **teal** for non-critical/brand (sunroof shade, charts); and a **neutral grey** for any control at rest (no more "rainbow" of per-button colours). The Overview gained a **"trunk open" chip**, and the battery standby chart now uses the brand colour. State is shown by which control is highlighted plus the status chips — the action buttons stay neutral.
+
 ## 1.23.1 — 2026-06-17
 
 ### Fixed
