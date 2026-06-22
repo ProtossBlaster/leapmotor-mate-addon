@@ -3,6 +3,11 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.29.0 — 2026-06-22
+
+### Added
+- **Mobile-friendly Trips / Charges / Statistics, and quicker navigation.** On phones (< 640 px) the summary "hero" tiles now **stack vertically** so labels like *Total distance* / *Total trips* are no longer truncated — the tablet/desktop layout is unchanged. Each of the three pages gains a **"Collapse all"** button that folds the whole year/month tree in one click, and every open year/month row gets an inline **⊟** to collapse just that section; the open/closed state is remembered across reloads. A floating **back-to-top** button (↑) now appears on every page once you scroll down. (Thanks @hubcasale — #83.)
+
 ## 1.28.1 — 2026-06-22
 
 ### Fixed
