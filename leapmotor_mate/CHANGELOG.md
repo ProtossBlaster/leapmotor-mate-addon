@@ -3,6 +3,11 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.32.1 — 2026-06-24
+
+### Fixed
+- **MQTT "Test connection" no longer fails with "Not authorised" when the password field is left blank (#91).** The MQTT password field is masked — it shows `••••••••` but never carries the real value — so clicking *Test connection* without re-typing the password tested with an **empty** password and the broker rejected it as "Not authorised", even though the background MQTT bridge and the top-right status dot (both using the **saved** password) stayed green. *Test connection* now falls back to the saved password when the field is left empty, exactly like Save and the status indicator already do; if you type a new password it still tests that one, so verifying new credentials before saving keeps working.
+
 ## 1.32.0 — 2026-06-24
 
 ### Added
