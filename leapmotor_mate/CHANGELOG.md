@@ -3,6 +3,11 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.36.0 — 2026-06-30
+
+### Added
+- **Map cursor synced to the SoC/speed chart on the trip detail page.** Hovering the chart now shows a cyan marker on the map at the exact GPS position recorded at that moment, following the cursor as it moves and disappearing when the mouse leaves the chart — makes it easy to spot where on the route a speed change or SoC drop happened. (#102, thanks @hubcasale)
+
 ## 1.35.1 — 2026-06-30
 
 ### Fixed
