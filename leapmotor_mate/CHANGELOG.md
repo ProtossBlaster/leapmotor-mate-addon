@@ -3,6 +3,12 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.0.0 — 2026-07-01
+
+### Added
+- **Dynamic electricity pricing from a Home Assistant sensor** (#104, thanks @Wartopia for the idea and the coffee ☕). If you're on a dynamic/spot-price contract (Nordpool, Tibber, ENTSO-E, or your utility's own integration), Mate can now price each charging session from that sensor's history instead of a fixed price — new "Dynamic (HA sensor)" mode on the Prices page, next to Flat and Time-of-use. **Requires Home Assistant** (add-on or a standalone install connected to HA) with a price-per-kWh sensor to point at; without one, or whenever it's briefly unreachable, Mate falls back to your flat base price so a session is never left uncosted.
+- Not a breaking change — if you don't use it, nothing changes. Bumped to 2.0.0 as a milestone after a month of near-daily releases, not because anything existing behaves differently.
+
 ## 1.36.2 — 2026-07-01
 
 ### Added
