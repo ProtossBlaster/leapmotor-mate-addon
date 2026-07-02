@@ -3,6 +3,17 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.1.0 — 2026-07-02
+
+### Added
+- **Automatic preparation when the car turns on (Ready).** A new automation on the **Vehicle Preparation** page fires the exact same one-shot preparation as tapping **Prepare Now** — climate, windows, per-seat heating/ventilation, heated steering and mirrors — but automatically, the moment the car goes **Ready** (powered on). You configure once what it should do; it then runs by itself on every start.
+  - **Optional interior-temperature condition.** You can gate it on the cabin temperature: run *only* when it's **above** a threshold (e.g. pre-cool above 25 °C) or *only* **below** one (e.g. pre-heat below 5 °C). **Leave the condition off and it runs on every Ready, unconditionally.** The check is on the **interior** temperature — the cloud exposes no outside-temperature signal — and it's evaluated **once**, at the instant the car turns on (a later temperature change during the same drive won't re-trigger it).
+  - **Fires once per Ready session**, not repeatedly: it won't re-run while you stay on, nor for a later trip within the same on-session. It's debounced against brief signal blips and is restart-safe (a poller restart never re-fires a preparation that already ran).
+  - Windows snap to the levels the car actually honors (0 / 20 / 50 / 100 % on the B10), the same as the manual control.
+- **User notes on charges and trips** (#107, thanks @riri19 for the suggestion).
+  - A free-text **note on each charge** (station location, shade/shelter, reliability, parking, weather, personal remarks) — context the raw numbers can't capture, right above *Delete charge*.
+  - A free-text **note on each trip**, plus **manual driving tags**: drive mode (Comfort / Normal / Sport) and One-Pedal (on/off). The Leapmotor cloud doesn't report drive mode or One-Pedal, so these are set by hand — they help explain why two similar trips consumed differently.
+
 ## 2.0.2 — 2026-07-02
 
 ### Fixed
