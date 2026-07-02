@@ -3,6 +3,11 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.1.1 — 2026-07-02
+
+### Fixed
+- **T03: the A/C now turns off** (#67, thanks @Gr1m214 for the report). On the T03, Mate's "A/C off" was accepted by the cloud but ignored by the car — you could switch the climate on, never off. The off command is now **model-specific**: the T03 uses the car's dedicated `ac_off` action, while the **B10 and C10 keep their confirmed off command unchanged** (B05 too). No change to how you use it — "A/C off" simply works on the T03 now.
+
 ## 2.1.0 — 2026-07-02
 
 ### Added
