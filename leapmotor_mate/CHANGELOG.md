@@ -3,6 +3,16 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.0.2 — 2026-07-02
+
+### Fixed
+- **Dynamic pricing no longer mis-prices charges away from home** (#106, thanks @twiktorowicz for the report). Since 2.0.0, selecting the Dynamic mode applied your home tariff sensor to **every** charge — including public AC/DC/HPC sessions, which the operator bills at their own fixed price, not at your home spot price (on spot markets some hours cost close to zero, so away-charge costs could be wildly wrong or near-free, silently). The pricing mode is now **per charge type**: Home, AC, DC and HPC each pick Fixed (24h) or Time slots, and Home can also go Dynamic (no HA integration exposes a price for public charging, so Dynamic is offered on Home only). Existing dynamic setups are corrected automatically on update: your sensor keeps pricing **home** charging exactly as before, while public types return to their fixed base prices. Fixed and Time-slots setups are untouched. Already-computed costs stay frozen as always — the fix applies to future charges (re-confirming a charge's type badge recomputes it).
+- Selecting Dynamic no longer locks you out of the other modes: time bands and fixed prices now coexist with it per charge type (e.g. home on the tariff sensor **and** a public AC network on its own time bands). A time-band price cell for a type not currently on Time slots is greyed out and disabled — it used to look live and editable while silently never being used.
+- While Home is Dynamic, its base-price field is hidden rather than shown as editable (it's a fallback only, used when the sensor misses or a charge is still in progress) — an editable price sitting right next to "Dynamic" looked like the real, current price.
+
+### Added
+- **Groundwork for total-energy statistics**: once a day Mate now quietly records the car's official lifetime energy and mileage counters from the cloud (the same "total energy" the vehicle itself reports, parked/standby consumption included) alongside the official driving split for the same window. Nothing visible yet — this ledger is what upcoming features (total & parked energy per period) will be built on, and the earlier you run a version that records it, the further back those stats will reach.
+
 ## 2.0.1 — 2026-07-02
 
 ### Fixed
