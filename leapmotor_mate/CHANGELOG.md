@@ -3,6 +3,11 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.1.3 — 2026-07-03
+
+### Changed
+- **Richer support diagnostics.** The diagnostics bundle's cost & wallbox section now shows, per charge, the exact stored `ac_energy` value, whether the card is billing on the wallbox (AC) or the battery (DC), and the wallbox counter baseline — so cost/wallbox questions (#109) can be diagnosed at a glance. Combined with the A/C-off command logging already added in 2.1.2 (#67), a single fresh diagnostic now captures exactly what the car reports and does.
+
 ## 2.1.2 — 2026-07-03
 
 ### Fixed
