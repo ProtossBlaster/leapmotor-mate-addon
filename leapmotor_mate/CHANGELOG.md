@@ -3,6 +3,11 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.5.0 — 2026-07-07
+
+### Added
+- **Range-extender (REEV) support is taking shape in the BetaTester build.** On the BetaTester data-collection build, a range-extender car now gets a **dual-energy Overview** — battery *and* fuel tank side by side (fuel level, range on fuel, and the combined battery+fuel range) — and every **engine-on trip is flagged with its petrol consumption** (litres and L/100 km), so REEV testers can check the new UI against their own car while we finish REEV support. It's exclusive to the **BetaTester build** and to **REEV cars**: a normal Mate — and any battery-only (BEV) car — shows nothing new.
+
 ## 2.4.1 — 2026-07-07
 
 ### Fixed
