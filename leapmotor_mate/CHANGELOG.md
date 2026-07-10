@@ -3,6 +3,11 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.5.8 — 2026-07-10
+
+### Fixed
+- **Setting the charge limit no longer wipes a start-time-only charge schedule.** If you had scheduled charging enabled with only a start time (no end time and no specific days), changing the charge limit could silently **disable the schedule and reset its start time to 00:00**. The cause was in the underlying library's read-modify-write: it keyed on the day mask, and the cloud omits that mask for a start-time-only plan, so it fell back to an all-defaults branch. Mate now round-trips the current plan and changes **only** the target SoC — the schedule's enabled state, start/end window and days are preserved (leapmotor-api #18). Schedules that had specific days set were never affected.
+
 ## 2.5.7 — 2026-07-10
 
 ### Changed
