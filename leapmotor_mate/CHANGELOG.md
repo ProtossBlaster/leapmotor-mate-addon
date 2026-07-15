@@ -3,6 +3,11 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.5.13 — 2026-07-15
+
+### Added
+- **Portuguese (Portugal) translation.** Mate is now available in European Portuguese (`pt-PT`) — a complete translation of the whole interface, selectable in Settings and during first-time setup. Thanks to @danielvilhena for the contribution (#137).
+
 ## 2.5.12 — 2026-07-13
 
 ### Added
