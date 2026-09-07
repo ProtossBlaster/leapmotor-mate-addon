@@ -3,6 +3,19 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 3.15.9 — 2026-09-07
+
+**Fixed (#278):** B05 live-status reads now use the same model-aware status-path fallback as
+the poller. Vehicle, Refresh, raw-signal diagnostics and charge-plan reads retry through the
+working `c10` family path when necessary and remember that choice separately for each VIN.
+The vehicle's real model remains unchanged for commands and capabilities.
+
+**Changed:** Pillow is now an explicit dependency. AnyIO stays below 4.15 while this release
+uses FastAPI 0.115.0 / Starlette 0.38.6, avoiding their incompatible deprecated alias.
+
+**Upgrade impact:** normal patch update with no database migration, stored-data conversion or
+settings reset. Rollback to 3.15.8 requires no data conversion.
+
 ## 3.15.8 — 2026-09-06
 
 **Fixed (beta #44):** Statistics and Energy-by-date-range now aggregate merged trips as one
@@ -5417,4 +5430,3 @@ First public release.
 - Two-step setup wizard: app certificate (upload/paste) + account login with EU model/battery auto-detect.
 - Configurable polling (parked/driving), bilingual UI (EN/IT).
 - Home Assistant add-on and standalone Docker deployment.
-
