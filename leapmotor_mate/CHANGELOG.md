@@ -3,18 +3,41 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 3.15.10 — 2026-09-09
+
+**Fixed (#279):** joined trips now retain and display the automatic notes from every later
+segment instead of showing only the first trip's note. Additional notes appear chronologically
+with their segment times and remain stored on their original trip, so splitting the journey
+restores every note unchanged.
+
+**Tests:** focused note and merged-summary checks passed 14 tests. The complete suite passed
+3,280 tests with 8 intentional skips; the remaining output consists only of dependency
+deprecation warnings.
+
+**Upgrade impact:** normal patch update for Docker, Home Assistant and MateDesktop. No database
+schema, migration or stored data changes. Rollback to v3.15.9 requires no data conversion.
+See [release and rollback notes](docs/releases/v3.15.10.md).
+
 ## 3.15.9 — 2026-09-07
 
 **Fixed (#278):** B05 live-status reads now use the same model-aware status-path fallback as
-the poller. Vehicle, Refresh, raw-signal diagnostics and charge-plan reads retry through the
-working `c10` family path when necessary and remember that choice separately for each VIN.
-The vehicle's real model remains unchanged for commands and capabilities.
+the poller. Vehicle, Refresh, raw-signal diagnostics and charge-plan reads try the reported
+model once, retry through the working `c10` family path when necessary, then remember that
+path per VIN. The vehicle keeps its real model for commands, capabilities and battery sizing.
+Models whose own status path works are unchanged, and a failed fallback is not repeated on
+every request.
 
-**Changed:** Pillow is now an explicit dependency. AnyIO stays below 4.15 while this release
-uses FastAPI 0.115.0 / Starlette 0.38.6, avoiding their incompatible deprecated alias.
+**Changed:** Pillow is now an explicit dependency because `leapmotor-api 0.3.1` does not
+publish the documented `image` extra. AnyIO is constrained below 4.15 while FastAPI 0.115.0
+uses Starlette 0.38, avoiding their incompatible deprecated alias without a framework upgrade.
 
-**Upgrade impact:** normal patch update with no database migration, stored-data conversion or
-settings reset. Rollback to 3.15.8 requires no data conversion.
+**Tests:** the research-bundle location guard now distinguishes complete numeric coordinate
+values from the same digits inside timestamps. Release verification passed 3,298 tests with
+one intentional documentation skip and deprecation warnings treated as errors.
+
+**Upgrade impact:** normal patch update for Docker, Home Assistant and MateDesktop. No database
+schema, stored setting, command path or user data changes. Rollback to v3.15.8 requires no data
+conversion. See [release and rollback notes](docs/releases/v3.15.9.md).
 
 ## 3.15.8 — 2026-09-06
 
@@ -5430,3 +5453,4 @@ First public release.
 - Two-step setup wizard: app certificate (upload/paste) + account login with EU model/battery auto-detect.
 - Configurable polling (parked/driving), bilingual UI (EN/IT).
 - Home Assistant add-on and standalone Docker deployment.
+
