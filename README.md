@@ -13,14 +13,18 @@ Home Assistant add-on for [**LeapMotor Mate**](https://github.com/ProtossBlaster
 
 > 🇮🇹 Versione italiana più sotto.
 
-## Mate 4 release candidate
+## Updating an existing installation to Mate 4
 
-**LeapMotor Mate Candidate 4.0.0-rc.1** is installed separately and explicitly.
-Stable users stay on the existing channel. Back up stable and stop its cloud
-poller before testing; never run both on the same account. Read the
-[candidate instructions](leapmotor_mate_candidate/README.md) and
-[backup/rollback procedure](leapmotor_mate_candidate/DOCS.md).
-Real Home Assistant validation for this candidate remains pending.
+Use the normal **Update** action on your existing **LeapMotor Mate** add-on.
+The same `leapmotor_mate` slug, configuration and persistent `/data` are retained.
+No separate candidate installation, certificate upload, account setup, database
+export/import or migration command is required.
+
+Mate checks the independent API automatically before selecting it. Accounts that
+cannot qualify, including unsupported REEV or mixed-model accounts, keep the
+legacy compatibility API for the whole account. This preserves existing behavior;
+it does not add REEV support to the stable add-on. Vehicle commands never cause
+fallback or replay through another API.
 
 ## Install
 
@@ -52,6 +56,14 @@ The database and certificate are stored in the add-on's persistent `/data`, surv
 ## 🇮🇹 Add-on Home Assistant
 
 Add-on per [**LeapMotor Mate**](https://github.com/ProtossBlaster/leapmotor-mate) — tracciamento viaggi, registro ricariche, navigazione e controllo remoto per veicoli Leapmotor (B10 · C10 · T03).
+
+### Aggiornare un'installazione esistente a Mate 4
+
+Usa il normale pulsante **Aggiorna** dell'add-on già installato. Slug,
+configurazione, account e dati restano gli stessi: non servono una nuova
+installazione, certificati, login, esportazioni/importazioni o comandi manuali.
+Se l'account non supera la verifica della nuova API, Mate mantiene automaticamente
+l'API compatibile precedente per tutte le sue auto.
 
 ### Installazione
 
