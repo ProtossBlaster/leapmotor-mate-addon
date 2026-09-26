@@ -13,6 +13,15 @@ Supported models: **B05 · B10 · C10 · T03** — full-electric (BEV) only, Eur
 
 ⚠️ **Use a Leapmotor account dedicated to Mate only** — never signed into another app, add-on, Docker or integration at the same time (Leapmotor allows ~one session per account → concurrent clients evict each other → the car goes offline → missing/inconsistent data). See the **Documentation** tab.
 
+## Updating to Mate 4
+
+Update this existing add-on normally. Its `leapmotor_mate` slug, configuration,
+account and persistent data remain in place. No extra installation, certificate
+upload, account setup, export/import or migration command is needed. Mate
+qualifies the independent API automatically and retains the legacy compatibility
+API for the whole account when qualification or model coverage is unavailable,
+including mixed-model accounts. This does not add stable REEV support.
+
 ## Highlights
 
 - 🚗 **Trips** — automatic detection with GPS track, distance, energy, efficiency and regen
