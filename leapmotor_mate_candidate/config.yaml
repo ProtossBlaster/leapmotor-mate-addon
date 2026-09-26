@@ -1,0 +1,41 @@
+name: "LeapMotor Mate Candidate"
+description: "Opt-in Mate 4 release candidate with the independent API. Back up stable data and stop the stable poller before testing."
+version: "4.0.0-rc.1"
+slug: "leapmotor_mate_candidate"
+url: "https://github.com/ProtossBlaster/leapmotor-mate"
+# Supervisor appends :4.0.0-rc.1 to this prebuilt multi-architecture image.
+# Publish and verify that exact candidate tag before publishing this add-on.
+# This candidate has not yet been validated on real Home Assistant.
+image: "ghcr.io/protossblaster/leapmotor-mate"
+init: false
+startup: "application"
+boot: "manual"
+homeassistant: "2024.1.0"
+
+# Lets the add-on read entities/history and set the charging current via the HA
+# Core API (Supervisor proxy) for the optional Wallbox feature.
+homeassistant_api: true
+
+arch:
+  - aarch64
+  - amd64
+
+map:
+  - type: data
+    read_only: false
+
+ingress: true
+ingress_port: 4000
+panel_icon: "mdi:car-electric"
+panel_title: "Mate Candidate"
+
+ports:
+  4000/tcp: null
+ports_description:
+  4000/tcp: "Web UI (not needed with ingress)"
+
+options:
+  log_level: "info"
+
+schema:
+  log_level: "list(trace|debug|info|warning|error|critical)"

@@ -13,6 +13,15 @@ Home Assistant add-on for [**LeapMotor Mate**](https://github.com/ProtossBlaster
 
 > 🇮🇹 Versione italiana più sotto.
 
+## Mate 4 release candidate
+
+**LeapMotor Mate Candidate 4.0.0-rc.1** is installed separately and explicitly.
+Stable users stay on the existing channel. Back up stable and stop its cloud
+poller before testing; never run both on the same account. Read the
+[candidate instructions](leapmotor_mate_candidate/README.md) and
+[backup/rollback procedure](leapmotor_mate_candidate/DOCS.md).
+Real Home Assistant validation for this candidate remains pending.
+
 ## Install
 
 **One-click:** click the **My Home Assistant** badge above — it opens *your* Home Assistant, adds this repository and jumps straight to the add-on. Then click **Install** → **Start**.
