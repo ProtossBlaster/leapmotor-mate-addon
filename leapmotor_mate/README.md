@@ -9,7 +9,7 @@
 **Trip tracking, charge logging and remote control for Leapmotor vehicles** — a self-hosted,
 privacy-first companion. Think *TeslaMate*, for Leapmotor.
 
-Supported models: **B05 · B10 · C10 · T03** — full-electric (BEV) only, European spec (the Leapmotor lineup distributed by Stellantis/Leapmotor). Not for REEV / range-extender versions.
+Supported models: **B05 · B10 · C10 · T03**, European spec (the Leapmotor lineup distributed by Stellantis/Leapmotor) — battery-electric and, since **4.7.0**, the **REEV** range-extender versions. A range extender does not get a regen figure: a generator refilling the pack while you drive cannot be told apart from braking.
 
 ⚠️ **Use a Leapmotor account dedicated to Mate only** — never signed into another app, add-on, Docker or integration at the same time (Leapmotor allows ~one session per account → concurrent clients evict each other → the car goes offline → missing/inconsistent data). See the **Documentation** tab.
 
@@ -20,7 +20,7 @@ account and persistent data remain in place. No extra installation, certificate
 upload, account setup, export/import or migration command is needed. Mate
 qualifies the independent API automatically and retains the legacy compatibility
 API for the whole account when qualification or model coverage is unavailable,
-including mixed-model accounts. This does not add stable REEV support.
+including mixed-model accounts.
 
 ## Highlights
 
