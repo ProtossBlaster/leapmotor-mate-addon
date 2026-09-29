@@ -21,10 +21,9 @@ No separate candidate installation, certificate upload, account setup, database
 export/import or migration command is required.
 
 Mate checks the independent API automatically before selecting it. Accounts that
-cannot qualify, including unsupported REEV or mixed-model accounts, keep the
-legacy compatibility API for the whole account. This preserves existing behavior;
-it does not add REEV support to the stable add-on. Vehicle commands never cause
-fallback or replay through another API.
+cannot qualify, including mixed-model accounts, keep the legacy compatibility
+API for the whole account. This preserves existing behavior. Vehicle commands
+never cause fallback or replay through another API.
 
 ## Install
 
