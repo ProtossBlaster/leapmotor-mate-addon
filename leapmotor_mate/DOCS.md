@@ -1,6 +1,6 @@
 # LeapMotor Mate
 
-Trip tracking, charge logging and remote control for Leapmotor vehicles (B05 · B10 · C10 · T03 — battery-electric and, since 4.7.0, REEV range-extender), running inside Home Assistant.
+Trip tracking, charge logging and remote control for Leapmotor vehicles (B03X · B05 · B10 · C10 · T03 — battery-electric and, since 4.7.0, REEV range-extender), running inside Home Assistant.
 
 ## Before you start
 

@@ -7,7 +7,7 @@
 [![Arch](https://img.shields.io/badge/arch-amd64%20%7C%20aarch64-lightgrey)](https://github.com/ProtossBlaster/leapmotor-mate)
 [![License](https://img.shields.io/badge/license-AGPL--3.0-blue)](https://github.com/ProtossBlaster/leapmotor-mate/blob/main/LICENSE)
 
-Home Assistant add-on for [**LeapMotor Mate**](https://github.com/ProtossBlaster/leapmotor-mate) — trip tracking, charge logging, charge scheduling, navigation and remote control for Leapmotor vehicles (B10 · C10 · T03).
+Home Assistant add-on for [**LeapMotor Mate**](https://github.com/ProtossBlaster/leapmotor-mate) — trip tracking, charge logging, charge scheduling, navigation and remote control for Leapmotor vehicles (B03X · B05 · B10 · C10 · T03).
 
 [![Open your Home Assistant instance and show the LeapMotor Mate add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5e44ad0d_leapmotor_mate&repository_url=https%3A%2F%2Fgithub.com%2FProtossBlaster%2Fleapmotor-mate-addon)
 
@@ -54,7 +54,7 @@ The database and certificate are stored in the add-on's persistent `/data`, surv
 
 ## 🇮🇹 Add-on Home Assistant
 
-Add-on per [**LeapMotor Mate**](https://github.com/ProtossBlaster/leapmotor-mate) — tracciamento viaggi, registro ricariche, navigazione e controllo remoto per veicoli Leapmotor (B10 · C10 · T03).
+Add-on per [**LeapMotor Mate**](https://github.com/ProtossBlaster/leapmotor-mate) — tracciamento viaggi, registro ricariche, navigazione e controllo remoto per veicoli Leapmotor (B03X · B05 · B10 · C10 · T03).
 
 ### Aggiornare un'installazione esistente a Mate 4
 
