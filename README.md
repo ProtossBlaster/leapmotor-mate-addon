@@ -42,9 +42,7 @@ Or add it manually:
 4. Find **LeapMotor Mate** in the store, click **Install**, then **Start**.
 5. Open the add-on panel (car icon in the sidebar) and follow the setup wizard.
 
-During setup you will:
-- upload the Leapmotor **app certificate** (`app.crt` + `app.key`, from [markoceri/leapmotor-certs](https://github.com/markoceri/leapmotor-certs));
-- log in with a **dedicated** Leapmotor account (not the one on your phone — the cloud binds one session per device).
+During setup you will log in with a **dedicated** Leapmotor account (not the one on your phone — the cloud binds one session per device).
 
 See the add-on **Documentation** tab for details.
 
@@ -81,9 +79,7 @@ Oppure manualmente:
 4. Trova **LeapMotor Mate** nello store, **Installa**, poi **Avvia**.
 5. Apri il pannello (icona auto nella barra laterale) e segui il wizard.
 
-Durante il setup dovrai:
-- caricare il **certificato app** Leapmotor (`app.crt` + `app.key`, da [markoceri/leapmotor-certs](https://github.com/markoceri/leapmotor-certs));
-- accedere con un account Leapmotor **dedicato** (non quello del telefono — il cloud lega una sessione per dispositivo).
+Durante il setup dovrai accedere con un account Leapmotor **dedicato** (non quello del telefono — il cloud lega una sessione per dispositivo).
 
 Database e certificato sono salvati nella `/data` persistente dell'add-on (sopravvivono a riavvii e aggiornamenti).
 

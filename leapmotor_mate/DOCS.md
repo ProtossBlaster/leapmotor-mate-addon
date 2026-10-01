@@ -11,18 +11,15 @@ integration — fights Mate for the session**: they keep evicting each other, th
 **offline** and you get **missing or inconsistent data**. Create a separate account in the
 Leapmotor app, share the car with it (all permissions, permanent), and use it **only** in Mate.
 
-You also need the Leapmotor **app TLS certificate** (the same for everyone, it
-identifies the app, not you): the files `app.crt` and `app.key`, available at
-**https://github.com/markoceri/leapmotor-certs**. You upload them once in the
-setup wizard.
+Nothing else to download: the Leapmotor **app TLS certificate** Mate needs to log
+in (the same for everyone, it identifies the app, not you) ships with Mate and is
+installed by itself on first start. You are never asked for it.
 
 ## Setup
 
 1. Start the add-on and open its panel (car icon in the sidebar).
-2. **Step 1 — Certificate:** upload `app.crt` and `app.key` (or paste their PEM
-   text).
-3. **Step 2 — Login:** enter your Leapmotor account email, password and
-   operation **PIN**. Your model and battery are auto-detected.
+2. **Login:** enter your Leapmotor account email, password and operation **PIN**.
+   Your model and battery are auto-detected.
 
 The poller then starts and data begins to appear: overview, trips, charges,
 statistics, remote commands and navigation.
