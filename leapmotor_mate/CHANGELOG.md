@@ -3,6 +3,24 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 4.15.1 — 2026-10-11
+
+- **A charge ends when the energy stops, and a full battery says "Charge complete"**
+  ([#414](https://github.com/ProtossBlaster/leapmotor-mate/pull/414), @arekm). A car keeps its charge session open for a while after the energy stops,
+  with the cable in (for minutes on the B10s and up to hours on the T03s in the bundles #414 replayed).
+  Mate ended the charge only with the session, so until then the Overview said "Charging" and the charge's end and duration
+  counted that time. A charge now ends at the later of the first reading after its last charging
+  sample and its last SoC rise. With the cable in, nothing going in and the SoC within one point of
+  the car's charge limit (100 % if it reports none), the Overview reads "Cable connected · 100%
+  (Charge complete)" and the Charges page "Fully charged". The session's close is kept in a new
+  column, `charges.closed_at`; the wallbox counter and the custom-kWh helper are read up to it, as
+  before. Signal 3736, which no car in #414's data sends as a completion, is no longer read; it stays in
+  the diagnostics as `charge_completed_raw`.
+- **A row that ends on another day says which** ([#415](https://github.com/ProtossBlaster/leapmotor-mate/pull/415), @arekm). A charge from 23:05 to
+  06:40 the next day read "23:05 → 06:40"; it now reads "23:05 → 09 Oct 06:40", in the reader's
+  language: in the Charges and Trips drawers, the merge preview, the similar-trips page and a merged
+  trip's later pieces. A row within one day reads as before.
+
 ## 4.15.0 — 2026-10-11
 
 - **A charge is a row that opens, like a trip; the Charges calendar opens several days**
