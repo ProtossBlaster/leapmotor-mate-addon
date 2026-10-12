@@ -3,6 +3,28 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 4.15.2 — 2026-10-12
+
+- **The chart of a charge appears when its row opens, and draws no more readings than it has pixels**
+  ([#417](https://github.com/ProtossBlaster/leapmotor-mate/pull/417), @arekm). An opened row asked for its chart only when the chart's place scrolled
+  into view, so on a phone, with the chart below the screen's edge, nothing came until a scroll; the
+  opening now asks for it. The chart draws at most one reading per pixel of its width: every K-th
+  one, the last, and those on either side of a pause, each a real reading at its own time, so a pause
+  still breaks the line. A charge with no more slots than the chart has pixels draws every reading,
+  as before. The same chart on the Wallbox page and in the panel of the running charge is thinned the
+  same way.
+- **An opened charge row comes into view with its chart** ([#418](https://github.com/ProtossBlaster/leapmotor-mate/pull/418), @arekm). A row opened by
+  hand near the bottom of the screen grew below its edge. Once its chart is drawn, the page now
+  scrolls as little as shows the whole row, or brings its top to the top of the screen when the row
+  is taller than the screen. A row already in view, and rows opened by Expand all or by a link, stay
+  where they are.
+- **Diagnostics: "SoC by day" counts a day's own kilometres** ([#338](https://github.com/ProtossBlaster/leapmotor-mate/issues/338)). The section took a
+  day's highest odometer minus its lowest, so a reading without an odometer (stored as 0), or a reading
+  of the other car on the account filed under this one before 4.14.1, made a T03's day read
+  "drove 9228 km". A reading without an odometer no longer counts for the km; one more than 1,500 km
+  from the day's median odometer is left out of the day's km and SoC and counted apart on its line.
+- Manuals: the 4.15.0 section gives a C10's voltage, about 720 V, where it said "an 800 V car".
+
 ## 4.15.1 — 2026-10-11
 
 - **A charge ends when the energy stops, and a full battery says "Charge complete"**
