@@ -3,6 +3,21 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 4.15.3 — 2026-10-12
+
+- **The wallbox's line stays with the charge** ([#419](https://github.com/ProtossBlaster/leapmotor-mate/pull/419), @arekm). With the wallbox enabled and
+  Home Assistant configured, the poller keeps the wallbox's power and counter, which it already read at
+  every poll of a home charge, in a new table, `ha_samples`. The green *Wallbox (AC)* line of a charge's
+  chart (Charges page, Wallbox page, panel of the running charge) is drawn from these readings alone, so
+  it no longer disappears when Home Assistant purges its history, and opening a chart asks Home
+  Assistant nothing. Once after the update, in the background, the lines of the finished charges marked
+  Home or not yet confirmed are copied from what Home Assistant's history still holds; a charge older
+  than that history keeps no line. Without a wallbox or Home Assistant nothing is asked, as before.
+- **A custom-kWh helper that reports in Wh is priced in kWh** ([#419](https://github.com/ProtossBlaster/leapmotor-mate/pull/419)). Its figure was read as
+  kWh, so 7,000 Wh were priced as 7,000 kWh. Costs already stored are not recomputed.
+- **On a phone, the times under a charge's or a trip's chart no longer run into each other.** The axis
+  prints as many times as its width holds: 4 or 5 on a phone, as before on a computer and a tablet.
+
 ## 4.15.2 — 2026-10-12
 
 - **The chart of a charge appears when its row opens, and draws no more readings than it has pixels**
