@@ -3,6 +3,16 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 4.15.4 — 2026-10-13
+
+- **A parked car whose GPS the cloud sends as zero keeps its outside temperature.** With the outside
+  temperature switched on, a reading with no GPS fix (0,0) was not looked up on Open-Meteo: the last
+  value stayed as it was, only in memory, so after a restart of Mate there was none and the Overview,
+  after some hours of readings without one, hid the row. With no fix, Mate now asks about the car's
+  last real position, but only while the odometer reads what it read there; a car driven since is not
+  guessed at. On 13 October the cloud sent a parked B10's six GPS signals as zero for more than 14
+  hours.
+
 ## 4.15.3 — 2026-10-12
 
 - **The wallbox's line stays with the charge** ([#419](https://github.com/ProtossBlaster/leapmotor-mate/pull/419), @arekm). With the wallbox enabled and
