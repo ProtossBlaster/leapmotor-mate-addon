@@ -3,6 +3,23 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 4.15.5 — 2026-10-18
+
+- **The Battery health page keeps the views you picked** ([#426](https://github.com/ProtossBlaster/leapmotor-mate/pull/426), @arekm). The page reloads
+  itself every 30 s when left open, and the reload put its two charts back on *Time*, *%/day* and *per
+  stop*. The views picked now go into the page's address (`?capacity_by=distance&drain=lost&drain_per=date`,
+  only those not at their default), as a calendar keeps its month, so the reload, a link or the browser's
+  Back draws them again. The page still reloads itself; opening it from the menu shows the defaults. The
+  calendars' own address code is now the same helper, `lmKeepInAddress`.
+- **The chart of a charge in progress is redrawn without a blink** ([#422](https://github.com/ProtossBlaster/leapmotor-mate/pull/422), @arekm). At every
+  30 s update the card showed for 0.07 to 0.17 s without its chart, and the page under it jumped up by
+  the chart's height and back. The panel now settles at once (`settle:0ms`), so the new chart is drawn in
+  the step that swaps it in.
+- **A restart keeps the outside temperature the car had** ([#425](https://github.com/ProtossBlaster/leapmotor-mate/pull/425), @arekm). When Open-Meteo refused
+  the first lookup after a restart (it answers 503 when it sheds load), there was no outside temperature
+  for up to 20 minutes. The sampler now starts from the reading on the car's newest position, if that
+  position is younger than 20 minutes; the first poll still asks, and how often Mate asks is unchanged.
+
 ## 4.15.4 — 2026-10-13
 
 - **A parked car whose GPS the cloud sends as zero keeps its outside temperature.** With the outside
