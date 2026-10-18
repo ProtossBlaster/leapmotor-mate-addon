@@ -3,6 +3,23 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 4.15.6 — 2026-10-18
+
+- **The MQTT plug sensor shows the cable the pages show** ([#429](https://github.com/ProtossBlaster/leapmotor-mate/issues/429)). Since 4.10.0 the pages show
+  the cable when the charge session says so (signal 1149) or when the AC port reports one on a parked car
+  (signal 47 at 1): a car that has finished its charge, or waits for its schedule, ends the session with
+  the cable still in. The MQTT `plug_connected` sensor and `evcc/plugged` kept publishing the session
+  alone, so such a car read *Plugged* on the Overview and OFF in Home Assistant. Both topics now publish
+  the cable as the pages do, from one rule (`events.cable_in_port`) the events read too; the session the
+  poller opens and closes charges on is unchanged. A test holds the sensor and the pages to one answer.
+- **The Overview shows the car picture at once, also while charging** ([#427](https://github.com/ProtossBlaster/leapmotor-mate/pull/427), @arekm). While the
+  car charges, the picture is an animation that took about 2.5 s to compose on Home Assistant's 4 cores,
+  and the card stayed empty meanwhile. The page now shows the car with its cable in first
+  (`/api/car-picture?still=1`) and puts the animation in its place once it has come. After a restart, the
+  first picture comes from the package on disk while the once-per-start download runs alongside, so a
+  new colour shows on a later load; with no package on disk, or on a manual refresh, the request waits
+  for the download, as before.
+
 ## 4.15.5 — 2026-10-18
 
 - **The Battery health page keeps the views you picked** ([#426](https://github.com/ProtossBlaster/leapmotor-mate/pull/426), @arekm). The page reloads
