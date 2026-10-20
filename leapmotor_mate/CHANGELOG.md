@@ -3,6 +3,21 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 4.15.7 — 2026-10-20
+
+- **Battery health counts a joined charge whole** ([#430](https://github.com/ProtossBlaster/leapmotor-mate/pull/430), @ElRoscaoJr). A charge the car
+  reported in pieces and that is joined into one session (by Mate after a short pause, or by hand with
+  *Join with previous*) had its energy read only up to the start of its second piece, which the window
+  took for the next charge. The Battery health page then left the session out, when the first piece alone
+  was under the 12-point minimum, or estimated the pack from part of it. The window now skips the
+  session's own pieces and still stops at the next independent charge. On the test instance's database 3
+  of 4 joined sessions change: one from 72.5 kWh / 108.0 % (its first piece, 13.8 of 33.7 points) to
+  68.1 kWh / 101.5 %, and one enters the chart; the headline figure is unchanged.
+- **The BetaTester build is closing by 20 November 2026.** The guide to moving to the official build
+  (`docs/BETA-TO-OFFICIAL.md`) says so, no longer tells research-diary users to stay, and lists the
+  settings to type again after the restore: the restore drops every secret in the backup (MQTT password,
+  Home Assistant and ABRP tokens, map keys), not only the Leapmotor login.
+
 ## 4.15.6 — 2026-10-18
 
 - **The MQTT plug sensor shows the cable the pages show** ([#429](https://github.com/ProtossBlaster/leapmotor-mate/issues/429)). Since 4.10.0 the pages show
