@@ -3,6 +3,19 @@
 All notable changes to LeapMotor Mate are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 4.18.0 — 2026-11-01
+
+- **Each car has its own operation PIN, so the PIN typed in Settings is the one commands use** ([#449](https://github.com/ProtossBlaster/leapmotor-mate/pull/449), @arekm).
+  On a single car, the PIN typed in Settings → Vehicle was saved as the install's, while commands used
+  the car's own PIN written by the setup wizard, so a new PIN changed nothing. Mate now keeps only a PIN
+  per car: the form names the car, and with two cars there is no "All cars" entry. An install-wide PIN
+  from an earlier version becomes the own PIN of every car without one, and on a single car it also
+  replaces the car's own. A command to a car with no PIN is not sent, and the Ready automation uses the
+  PIN of the car that turned on.
+- **A car's function config from the cloud is kept, and the diagnostics bundle shows it** ([#446](https://github.com/ProtossBlaster/leapmotor-mate/pull/446), @arekm).
+  The bundle's vehicle abilities section has one more line, `funcConfig`, with the fan's and the
+  temperature's range the cloud's vehicle list gives the car, or `null` when the list has none.
+
 ## 4.17.0 — 2026-10-28
 
 - **The charging panel says when the charge ends** ([D#444](https://github.com/ProtossBlaster/leapmotor-mate/discussions/444), @banolka).
